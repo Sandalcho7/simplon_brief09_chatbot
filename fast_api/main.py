@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from scraper import scrape_data
 
+
 KEY = os.getenv("EDEN_AI_KEY")
 HEADERS = {"Authorization": KEY}
 
@@ -55,12 +56,11 @@ async def chatbot(prompt):
         f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words."
     )
 
-    print("-----------------------KEY = ", KEY)
-
     response = requests.post(URL, json=payload, headers=HEADERS)
     result = json.loads(response.text)
     rp = result[PROVIDER]
     formatted_response = rp["generated_text"].strip('"')
+
     return formatted_response
 
 
