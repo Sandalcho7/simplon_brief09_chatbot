@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from scraper import scrape_data
 
 KEY = os.getenv("EDEN_AI_KEY")
-HEADERS = {"Authorization": {KEY}}
+HEADERS = {"Authorization": KEY}
 
 URL = "https://api.edenai.run/v2/text/chat"
 PROVIDER = "mistral"
