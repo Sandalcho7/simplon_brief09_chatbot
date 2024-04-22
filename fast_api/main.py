@@ -13,24 +13,21 @@ URL = "https://api.edenai.run/v2/text/chat"
 PROVIDER = "mistral"
 SCRAPED_URL = "http://abb09.westeurope.azurecontainer.io:8001/"
 
-try:
-    data = scrape_data(SCRAPED_URL)
-except:
-    data = ""
 
 payload = {
     "providers": PROVIDER,
     "text": "",
-    "chatbot_global_action": f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words.",
+    "chatbot_global_action": "",
     "previous_history": [],
     "temperature": 0.0,
     "max_tokens": 150,
     "fallback_providers": "",
 }
 
+
 app = FastAPI()
 
-origins = ["http://localhost", "http://localhost:8001"]
+origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -47,10 +44,18 @@ def test(prompt):
 
 @app.post("/{prompt}")
 async def chatbot(prompt):
+    try:
+        data = scrape_data(SCRAPED_URL)
+    except:
+        data = ""
+
     if key == "insert API key here":
         print("Vous n'avez pas renseigné de clé API")
     else:
         payload["text"] = prompt
+        payload["chatbot_global_action"] = (
+            f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words."
+        )
         response = requests.post(URL, json=payload, headers=HEADERS)
         result = json.loads(response.text)
         rp = result[PROVIDER]
