@@ -1,0 +1,67 @@
+env:
+  RG_NAME: anatole-RG
+  ACR_NAME: abb09
+  CONT_NAME: abb09
+  
+  FRONTEND_IMAGE: ab-front
+  BACKEND_IMAGE: ab-back
+
+  EDEN_AI_KEY: ${{ secrets.EDEN_AI_KEY }}
+
+on:
+  push:
+    branches:
+      - ci-implementation
+
+name: Services Deployment
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Login to Azure
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+       # Login to Azure Container Registry
+      - name: Login to ACR
+        run: az acr login --name ${{ env.ACR_NAME }}
+
+      # Build and push frontend Docker image to ACR
+      - name: Build and push frontend Docker image
+        working-directory: ./site
+        run: |
+          docker build -t ${{ env.FRONTEND_IMAGE }}:latest .
+          docker tag ${{ env.FRONTEND_IMAGE }}:latest ${{ env.ACR_NAME }}.azurecr.io/${{ env.FRONTEND_IMAGE }}:latest
+          docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.FRONTEND_IMAGE }}:latest
+
+      # Build and push backend Docker image to ACR
+      - name: Build and push backend Docker image
+        working-directory: ./fast_api
+        run: |
+          docker build -t ${{ env.BACKEND_IMAGE }}:latest .
+          docker tag ${{ env.BACKEND_IMAGE }}:latest ${{ env.ACR_NAME }}.azurecr.io/${{ env.BACKEND_IMAGE }}:latest
+          docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.BACKEND_IMAGE }}:latest
+
+      # Replace the registry password value using my secret
+      - name: Find ACR token and replace in config
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "password.registry"
+          replace: ${{ secrets.AZURE_ACR_PASSWORD }}
+          regex: false
+          include: 'config_deploy_main.yml'
+
+      # Delete existing Azure Container Instances for frontend and backend
+      - name: Delete existing Azure Container Instances
+        run: |
+          az container delete --name ${{ env.CONT_NAME }} --resource-group ${{ env.RG_NAME }} --yes
+
+      # Create Azure Container Instances for frontend and backend
+      - name: Create Azure Container Instances
+        run: az container create --resource-group ${{ env.RG_NAME }} --file config_deploy_main.yml

@@ -1,3 +1,4 @@
+import os
 import json
 import requests
 
@@ -7,10 +8,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from keys.key import key
 from scraper import scrape_data
 
-HEADERS = {"Authorization": f"Bearer {key}"}
+HEADERS = os.getenv("EDEN_AI_KEY")
 URL = "https://api.edenai.run/v2/text/chat"
-PROVIDER = 'mistral'
-SCRAPED_URL = 'http://localhost:8001/'
+PROVIDER = "mistral"
+SCRAPED_URL = "http://abb09.westeurope.azurecontainer.io:8001/"
 
 try:
     data = scrape_data(SCRAPED_URL)
@@ -18,14 +19,14 @@ except:
     data = ""
 
 payload = {
-        "providers": PROVIDER,
-        "text": "",
-        "chatbot_global_action": f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words.",
-        "previous_history": [],
-        "temperature": 0.0,
-        "max_tokens": 150,
-        "fallback_providers": ""
-    }
+    "providers": PROVIDER,
+    "text": "",
+    "chatbot_global_action": f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words.",
+    "previous_history": [],
+    "temperature": 0.0,
+    "max_tokens": 150,
+    "fallback_providers": "",
+}
 
 app = FastAPI()
 
@@ -38,13 +39,15 @@ app.add_middleware(
     allow_headers=["*"],  # You can restrict this to specific headers if needed
 )
 
+
 @app.get("/test/{prompt}", description="Test !")
 def test(prompt):
     return "Yo"
 
+
 @app.post("/{prompt}")
 async def chatbot(prompt):
-    if key == 'insert API key here':
+    if key == "insert API key here":
         print("Vous n'avez pas renseigné de clé API")
     else:
         payload["text"] = prompt
@@ -57,4 +60,5 @@ async def chatbot(prompt):
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
