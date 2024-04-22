@@ -2,7 +2,7 @@ env:
   RG_NAME: anatole-RG
   ACR_NAME: abb09
   CONT_NAME: abb09
-  
+
   FRONTEND_IMAGE: ab-front
   BACKEND_IMAGE: ab-back
 
