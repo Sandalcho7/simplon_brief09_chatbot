@@ -9,7 +9,6 @@ from scraper import scrape_data
 
 
 HEADERS = os.getenv("EDEN_AI_KEY")
-print(f"HEADERS: {HEADERS}")
 URL = "https://api.edenai.run/v2/text/chat"
 PROVIDER = "mistral"
 SCRAPED_URL = "http://abb09.westeurope.azurecontainer.io:8001/"
@@ -49,6 +48,8 @@ async def chatbot(prompt):
         data = scrape_data(SCRAPED_URL)
     except:
         data = ""
+
+    print(f"HEADERS: {HEADERS}")
 
     payload["text"] = prompt
     payload["chatbot_global_action"] = (
