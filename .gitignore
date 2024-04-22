@@ -1,7 +1,5 @@
 # Personal settings
 fast_api/keys/key.py
-fast_api/Dockerfile
-fast_api/.dockerignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
