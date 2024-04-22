@@ -3,9 +3,6 @@ fast_api/keys/key.py
 fast_api/Dockerfile
 fast_api/.dockerignore
 
-site/Dockerfile
-site/.dockerignore
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
