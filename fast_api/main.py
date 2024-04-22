@@ -5,7 +5,6 @@ import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from keys.key import key
 from scraper import scrape_data
 
 HEADERS = os.getenv("EDEN_AI_KEY")
