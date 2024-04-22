@@ -7,9 +7,9 @@ env:
   BACKEND_IMAGE: ab-back
 
 on:
-  push:
+  pull-requests:
     branches:
-      - ci-implementation
+      - main
 
 name: Services Deployment
 
