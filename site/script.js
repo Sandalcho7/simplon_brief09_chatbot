@@ -1,5 +1,6 @@
-// Ouverture et fermeture du chat
+const API_PATH = 'http://abb09.westeurope.azurecontainer.io:8000/'
 
+// Ouverture et fermeture du chat
 document.addEventListener("DOMContentLoaded", function() {
     // Get references to the chat header, body, input, and window
     const chatWindow = document.querySelector('.chatbot-window');
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Gestion des messages
-
 document.addEventListener("DOMContentLoaded", function() {
     // Get references to the input field, send button, and chat body wrapper
     const inputFieldEl = document.querySelector('.chatbot-input input');
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Create a new message element for bot response
             const botMessageElementEl = document.createElement('div');
-            fetch('http://localhost:8000/' + message, {method: 'POST'})
+            fetch(API_PATH + message, {method: 'POST'})
                 .then(response => {
                     return response.json();
                 })
