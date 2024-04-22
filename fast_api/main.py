@@ -54,6 +54,9 @@ async def chatbot(prompt):
     payload["chatbot_global_action"] = (
         f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words."
     )
+
+    print("-----------------------KEY = ", KEY)
+
     response = requests.post(URL, json=payload, headers=HEADERS)
     result = json.loads(response.text)
     rp = result[PROVIDER]
