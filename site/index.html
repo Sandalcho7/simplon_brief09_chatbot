@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goat Müller</title>
+
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Karla&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    
+    <script src="assets/chatbot.js"></script>
+  </head>
+  <body>
+    <section class="navbar" id="top">
+        <a href="#top">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">My skills</button>
+            <div class="dropdown-content">
+                <a href="#beatles_skill">The Beatles cosplay</a>
+                <a href="#barb_skill">La barbichette</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="header">
+        <div>
+            <h2>Hi, I am</h2>
+            <h1>Gerd Müller</h1>
+            <h2 id="header-desc">a professionnal footballer</h2>
+        </div>
+        <div>
+            <h3 class="big-numbers">10</h3>
+        </div>
+    </section>
+
+    <section class="profile">
+        <div class="container">
+            <img src="./assets/images/gerd_profile.png" alt="Gerd Müller" class="profile-pic">
+            <h2>Hello</h2>
+            <p>I am a German professional footballer. A prolific striker, especially in and around the six-yard box, I am widely regarded as one of the greatest goalscorers in the history of the sport.</p>
+        </div>
+    </section>
+
+    <section class="skills">
+        <div class="container">
+            <h2>My skills</h2>
+            <ul>
+                <li id="beatles_skill">
+                    <img src="./assets/images/me_and_the_boys.jpg" alt="Me and the boys">
+                    <div class="desc">  
+                        <h3>The Beatles cosplay</h3>
+                        <p>Obviously, look at our <span>hairstyles</span>. This picture speaks for itself.</p>
+                    </div>     
+                </li>
+                <li id="barb_skill">
+                    <img src="./assets/images/barbichette.jpg" alt="Tu me tiend par la barbichette">
+                    <div class="desc">
+                        <h3>La barbichette</h3>
+                        <p>Currently the <span>Heavyweight World Champion</span> of "Tu me tiens par la <span>barbichette</span>". Here's a pic from the semi-final round.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Get in touch</h2>
+            <h3>If you want to see me drink beer or shoot freekicks.</h3>
+            <p>Don't believe me when I say that I'm the World best barbichette player? Come see by yourself. But please, take an appointement.</p>
+            <a href="#">Contact me</a>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="container">
+            <div class="links">
+                <a href="https://fr.wikipedia.org/wiki/Gerd_Müller" target="_blank">Wikipedia</a>
+                <a href="https://fcbayern.com/de" target="_blank">FC Bayern</a>
+                <a href="https://github.com/Sandalcho7" target="_blank">My GitHub</a>
+            </div>
+            <p>© Gerd Müller</p>
+        </div>
+    </section>
+
+    <!-- Chat bot window -->
+    <div class="chatbot-window">
+        <div class="chatbot-header">
+          <span class="chatbot-title">Ask a question here</span>
+        </div>
+        <div class="chatbot-body">
+            <div class="message-container-wrapper">
+                <!-- Messages will be displayed here -->
+            </div>
+        </div>
+        <div class="chatbot-input">
+          <input type="text" placeholder="Type your message here...">
+          <button class="chatbot-send-btn">Send</button>
+        </div>
+    </div>
+  </body>
+</html>
