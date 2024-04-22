@@ -6,8 +6,6 @@ env:
   FRONTEND_IMAGE: ab-front
   BACKEND_IMAGE: ab-back
 
-  EDEN_AI_KEY: ${{ secrets.EDEN_AI_KEY }}
-
 on:
   push:
     branches:
@@ -44,7 +42,7 @@ jobs:
       - name: Build and push backend Docker image
         working-directory: ./fast_api
         run: |
-          docker build -t ${{ env.BACKEND_IMAGE }}:latest .
+          docker build --build-arg EDEN_AI_KEY=${{ secrets.EDEN_AI_KEY }} -t ${{ env.BACKEND_IMAGE }}:latest .
           docker tag ${{ env.BACKEND_IMAGE }}:latest ${{ env.ACR_NAME }}.azurecr.io/${{ env.BACKEND_IMAGE }}:latest
           docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.BACKEND_IMAGE }}:latest
 
