@@ -7,8 +7,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from scraper import scrape_data
 
+KEY = os.getenv("EDEN_AI_KEY")
+HEADERS = {"Authorization": f"{KEY}"}
 
-HEADERS = os.getenv("EDEN_KEY")
 URL = "https://api.edenai.run/v2/text/chat"
 PROVIDER = "mistral"
 SCRAPED_URL = "http://abb09.westeurope.azurecontainer.io:8001/"
@@ -49,19 +50,15 @@ async def chatbot(prompt):
     except:
         data = ""
 
-    if isinstance(HEADERS, dict):
-        payload["text"] = prompt
-        payload["chatbot_global_action"] = (
-            f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words."
-        )
-        response = requests.post(URL, json=payload, headers=HEADERS)
-        result = json.loads(response.text)
-        rp = result[PROVIDER]
-        formatted_response = rp["generated_text"].strip('"')
-        return formatted_response
-
-    else:
-        return "Unvalid API key!"
+    payload["text"] = prompt
+    payload["chatbot_global_action"] = (
+        f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words."
+    )
+    response = requests.post(URL, json=payload, headers=HEADERS)
+    result = json.loads(response.text)
+    rp = result[PROVIDER]
+    formatted_response = rp["generated_text"].strip('"')
+    return formatted_response
 
 
 if __name__ == "__main__":
