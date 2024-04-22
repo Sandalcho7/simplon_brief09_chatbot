@@ -6,6 +6,8 @@ env:
   FRONTEND_IMAGE: ab-front
   BACKEND_IMAGE: ab-back
 
+  EDEN_AI_KEY: ${{ secrets.EDEN_AI_KEY }}
+
 on:
   push:
     branches:
