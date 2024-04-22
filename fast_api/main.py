@@ -49,17 +49,19 @@ async def chatbot(prompt):
     except:
         data = ""
 
-    print(f"HEADERS: {HEADERS}")
+    if isinstance(HEADERS, dict):
+        payload["text"] = prompt
+        payload["chatbot_global_action"] = (
+            f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words."
+        )
+        response = requests.post(URL, json=payload, headers=HEADERS)
+        result = json.loads(response.text)
+        rp = result[PROVIDER]
+        formatted_response = rp["generated_text"].strip('"')
+        return formatted_response
 
-    payload["text"] = prompt
-    payload["chatbot_global_action"] = (
-        f"Act as an assistant, answer questions using the following data if needed: {data}. Your answer need to be shorter than 100 words."
-    )
-    response = requests.post(URL, json=payload, headers=HEADERS)
-    result = json.loads(response.text)
-    rp = result[PROVIDER]
-    formatted_response = rp["generated_text"].strip('"')
-    return formatted_response
+    else:
+        return "Unvalid API key!"
 
 
 if __name__ == "__main__":
