@@ -1,12 +1,12 @@
 env:
-  RG_NAME: anatole-RG
-  ACR_NAME: abb09
-  CONT_NAME: abb09
+  RG_NAME: anatole-RG    # Name of my resource group
+  ACR_NAME: abb09    # Name of my containers registry
+  CONT_NAME: abb09    # Name of my containers instance, need to match the one in config_deploy_main.yml
 
   FRONTEND_IMAGE: ab-front
   BACKEND_IMAGE: ab-back
 
-on:
+on:    # Conditions for the deployment to happen
   pull-requests:
     branches:
       - main
