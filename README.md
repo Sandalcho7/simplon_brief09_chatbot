@@ -89,11 +89,11 @@ Notez que le nom du service principal doit être renseigné entre "quotes", le R
 az acr create --resource-group <resource-group-name> --name <registry-name> --sku Standard
 ```
 
-6 / Une fois le registre créé, rendez-vous sur le portail Azure et accédez à la rubrique "Access keys" de ce registre. Cochez la case "Admin user" et copier le premier mot de passe affiché. Ajoutez-le en tant que AZURE_ACR_PASSWORD dans les secrets GitHub.<br><br>
+6 / Une fois le registre créé, rendez-vous sur le portail Azure et accédez à la rubrique "Access keys" de ce registre. Cochez la case "Admin user" et copier le premier mot de passe affiché. Ajoutez-le en tant que AZURE_ACR_PASSWORD dans les secrets GitHub.<br>
 
-7 / Un dernier secret à créer est la clé Eden AI pour utiliser leur API. Une fois le compte gratuit créé, copier votre API Key et ajoutez-la en tant que EDEN_AI_KEY dans les secrets GitHub.<br><br>
+7 / Un dernier secret à créer est la clé Eden AI pour utiliser leur API. Une fois le compte gratuit créé, copier votre API Key et ajoutez-la en tant que EDEN_AI_KEY dans les secrets GitHub.<br>
 
-8 / Il ne reste plus qu'à configurer votre API dans le fichier config.py puis configurer le déploiement dans les deux fichiers .yml présents dans le repo.<br><br>
+8 / Il ne reste plus qu'à configurer votre API dans le fichier config.py puis configurer le déploiement dans les deux fichiers .yml présents dans le repo.<br>
 
 9 / Une dernière étape avant le déploiement est de modifier l'adresse de l'API dans le fichier script.js (à faire après configuration du déploiement car l'URL dépend du DNS et de la région choisis). Une URL attendue pour un déploiement en région "westeurope" serait :
 ```js
