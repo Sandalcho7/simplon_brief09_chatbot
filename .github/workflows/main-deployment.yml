@@ -7,7 +7,7 @@ env:
   BACKEND_IMAGE: ab-back
 
 on:    # Conditions for the deployment to happen
-  pull-requests:
+  pull-request:
     branches:
       - main
 
