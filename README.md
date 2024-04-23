@@ -50,7 +50,7 @@ Ce projet a été développé pour être déployé sur Azure via Github Actions,
 
 ### Procédure (celle que j'ai suivie en tout cas)
 
-0 / Cloner le projet sur un repo GitHub personnel<br><br>
+0 / Cloner le projet sur un repo GitHub personnel<br>
 
 1 / Depuis votre CLI, connectez votre compte Azure (avec cette commande, une page web devrait s'ouvrir pour renseigner vos identifiants) :
 ```bash
@@ -66,7 +66,7 @@ az group create --name <resource-group-name> --location westeurope
 ```bash
 az ad sp create-for-rbac --name "<service-principal-name>" --role contributor --scopes <Resource-ID> --json-auth
 ```
-Notez que le nom du service principal doit être renseigné entre "quotes", le Resource ID est trouvable depuis le portail Azure, dans les propriétés de votre groupe de ressources.<br><br>
+Notez que le nom du service principal doit être renseigné entre "quotes", le Resource ID est trouvable depuis le portail Azure, dans les propriétés de votre groupe de ressources.<br>
 
 4 / La commande précédente devrait renvoyer un dictionnaire avec vos credentials (pour ce service principal), ajoutez-le en tant que AZURE_CREDENTIALS dans les secrets GitHub (dans votre repo : Settings > Secrets and variables > Actions > New repository secret).
 ```bash
