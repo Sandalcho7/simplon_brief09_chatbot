@@ -1,25 +1,25 @@
 apiVersion: 2023-05-01
 location: westeurope
-name: abb09
+name: abb09    # Name of my containers instance, need to match the one in main-deployment.yml
 properties:
-  imageRegistryCredentials:
+  imageRegistryCredentials:    # Credentials found in Access keys section of my registry
       - server: abb09.azurecr.io
         username: abb09
         password: password.registry
 
   containers:
-  - name: abb09-front
+  - name: abb09-front    # Name of the container
     properties:
-      image: abb09.azurecr.io/ab-front:latest
+      image: abb09.azurecr.io/ab-front:latest    # Need to match image created in main-deployment.yml
       resources:
         requests:
           cpu: 1
           memoryInGb: 1.5
       ports:
       - port: 8001
-  - name: abb09-back
+  - name: abb09-back    # Name of the container
     properties:
-      image: abb09.azurecr.io/ab-back:latest
+      image: abb09.azurecr.io/ab-back:latest    # Need to match image created in main-deployment.yml
       ports:
       - port: 8000
       resources:
@@ -30,12 +30,12 @@ properties:
   osType: Linux
   ipAddress:
     type: Public
-    dnsNameLabel: abb09
+    dnsNameLabel: abb09    # DNS name, FQDN partly depends on that
     ports:
     - protocol: tcp
       port: 8001
     - protocol: tcp
       port: 8000
 
-tags: {exampleTag: abb09}
+tags: {brief: b09-chatbot}
 type: Microsoft.ContainerInstance/containerGroups
