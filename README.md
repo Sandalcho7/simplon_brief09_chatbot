@@ -16,6 +16,7 @@ project/
 │       └── main-deployment.yml    # Deployments config for pull requests on main branch
 │
 ├── fast_api/
+│   ├── chatbot.py    # Chatbot function (uses Eden AI service)
 │   ├── config.py    # API settings (mostly Eden AI), API key here
 │   ├── Dockerfile
 │   ├── main.py    # API script
