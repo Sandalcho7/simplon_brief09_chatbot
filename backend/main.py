@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .chatbot import get_answer_from_chatbot
+from chatbot import get_answer_from_chatbot
 
 
 
