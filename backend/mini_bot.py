@@ -1,7 +1,7 @@
 import json
 import requests
 
-from .config import HEADERS, TOOL_URL, PROVIDER, payload
+from config import HEADERS, TOOL_URL, PROVIDER, payload
 
 
 def chatbot():
