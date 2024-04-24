@@ -32,6 +32,9 @@ project/
 │   ├── script.js
 │   └── style.css
 │
+├── tests/
+│   └── test_chatbot.py
+│
 ├── .gitignore
 ├── config_deploy_main.yml    # Containers instance configuration
 └── README.md
