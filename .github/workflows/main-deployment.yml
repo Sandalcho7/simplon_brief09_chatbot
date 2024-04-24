@@ -20,6 +20,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Run unit tests
+      - name: Run unit tests
+        working-directory: ./tests
+        run: |
+          pip install pytest
+          pytest test_chatbot.py
+
       # Login to Azure
       - name: Login to Azure
         uses: azure/login@v2

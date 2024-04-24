@@ -1,8 +1,8 @@
 import requests
 import json
 
-from scraper import scrape_data
-from config import HEADERS, PROVIDER, TOOL_URL, SCRAPED_URL, payload
+from .scraper import scrape_data
+from .config import HEADERS, PROVIDER, TOOL_URL, SCRAPED_URL, payload
 
 
 
