@@ -15,7 +15,7 @@ project/
 │   └── workflows/
 │       └── main-deployment.yml    # Deployments config for pull requests on main branch
 │
-├── fast_api/
+├── backend/
 │   ├── chatbot.py    # Chatbot function (uses Eden AI service)
 │   ├── config.py    # API settings (mostly Eden AI), API key here
 │   ├── Dockerfile
@@ -134,7 +134,7 @@ const API_PATH = 'http://localhost:8000/'
 python -m http.server 8001
 ```
 
-6 / Depuis le terminal, lancer l'API en se plaçant dans le dossier fast_api et en exécutant :
+6 / Depuis le terminal, lancer l'API en se plaçant dans le dossier backend/ et en exécutant :
 ```bash
 python main.py
 ```
