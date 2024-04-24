@@ -20,6 +20,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Navigate to the backend directory and install requirements
+      - name: Install backend requirements
+        working-directory: ./backend
+        run: |
+          pip install -r requirements.txt
+
       # Run unit tests
       - name: Run unit tests
         working-directory: ./tests
@@ -47,7 +53,7 @@ jobs:
 
       # Build and push backend Docker image to ACR
       - name: Build and push backend Docker image
-        working-directory: ./fast_api
+        working-directory: ./backend
         run: |
           docker build --build-arg EDEN_AI_KEY=${{ secrets.EDEN_AI_KEY }} -t ${{ env.BACKEND_IMAGE }}:latest .
           docker tag ${{ env.BACKEND_IMAGE }}:latest ${{ env.ACR_NAME }}.azurecr.io/${{ env.BACKEND_IMAGE }}:latest
