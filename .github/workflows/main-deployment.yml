@@ -10,12 +10,20 @@ on:    # Conditions for the deployment to happen
   pull_request:
     branches:
       - main
+    types:
+      - closed
+
+permissions:
+  id-token: write
+  contents: read
 
 name: Services Deployment
 
 jobs:
-  build-and-deploy:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
