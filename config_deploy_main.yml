@@ -10,7 +10,7 @@ properties:
   containers:
   - name: abb09-front    # Name of the container
     properties:
-      image: abb09.azurecr.io/ab-front:latest    # Need to match image created in main-deployment.yml
+      image: abb09.azurecr.io/abb09-front:latest    # Need to match image created in main-deployment.yml
       resources:
         requests:
           cpu: 1
@@ -19,7 +19,7 @@ properties:
       - port: 8001
   - name: abb09-back    # Name of the container
     properties:
-      image: abb09.azurecr.io/ab-back:latest    # Need to match image created in main-deployment.yml
+      image: abb09.azurecr.io/abb09-back:latest    # Need to match image created in main-deployment.yml
       ports:
       - port: 8000
       resources:
@@ -37,5 +37,5 @@ properties:
     - protocol: tcp
       port: 8000
 
-tags: {brief: b09-chatbot}
+tags: {env: prod}
 type: Microsoft.ContainerInstance/containerGroups

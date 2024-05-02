@@ -3,8 +3,8 @@ env:
   ACR_NAME: abb09    # Name of my containers registry
   CONT_NAME: abb09    # Name of my containers instance, need to match the one in config_deploy_main.yml
 
-  FRONTEND_IMAGE: ab-front
-  BACKEND_IMAGE: ab-back
+  FRONTEND_IMAGE: abb09-front
+  BACKEND_IMAGE: abb09-back
 
 on:    # Conditions for the deployment to happen
   pull_request:
