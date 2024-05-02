@@ -1,10 +1,10 @@
 # SIMPLON DEV IA | Brief 9
 
-## Intégrer un chatbot IA à son portfolio
+## Chatbot et data scraping
 
 ### Contexte
 
-En tant que développeur IA, je suis chargé d'intégrer un chatbot dans un site web existant. Le chatbot sera alimenté par une API externe (Mistral, OpenAI, Bard, Anthropic...) pour fournir des réponses conversationnelles aux utilisateurs du site.
+Dans le cadre de ma formation développeur IA chez Simplon, j'ai mis en place un chatbot avec lequel on peut intéragir via un frontend. Le contenu de ce frontend (simple, pour l'exercice) est scrapé et les données sont utilisées par le chatbot, si nécessaire, pour répondre aux questions.
 
 ### Structure du projet
 
