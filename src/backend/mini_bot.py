@@ -1,7 +1,28 @@
-import json
 import requests
+import json
+import os
 
-from config import HEADERS, TOOL_URL, PROVIDER, payload
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+# Chatbot configuration
+KEY = os.getenv("EDENAI_KEY")
+HEADERS = {"Authorization": f"Bearer {KEY}"}
+
+TOOL_URL = "https://api.edenai.run/v2/text/chat"
+PROVIDER = "openai/gpt-4o-mini"
+
+payload = {
+    "providers": PROVIDER,
+    "text": "",
+    "chatbot_global_action": "",
+    "previous_history": [],
+    "temperature": 0.0,
+    "max_tokens": 150,
+    "fallback_providers": "",
+}
 
 
 def chatbot():
