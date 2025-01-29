@@ -1,7 +1,7 @@
 # Frontend et chatbot personnalisé
 
 ## Contexte
-Dans le cadre de ma formation développeur IA chez Simplon, j'ai mis en place un chatbot avec lequel on peut intéragir via un frontend. Le contenu de ce frontend (simple et sans réel but, pour l'exercice) est scrapé et les données sont utilisées par le chatbot, si nécessaire, pour répondre aux questions. Ce projet impliquant un backend et un frontend m'a aussi permis de faire mes premiers pas avec Docker.
+Dans le cadre de ma formation de développeur IA, j'ai mis en place un chatbot avec lequel on peut intéragir via un frontend. Le contenu de ce frontend (simple et sans réel but, pour l'exercice) est scrapé et les données sont utilisées par le chatbot, si nécessaire, pour répondre aux questions. Ce projet impliquant un backend et un frontend m'a aussi permis de faire mes premiers pas avec Docker.
 
 ## Structure du projet
 ```bash
