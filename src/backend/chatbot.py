@@ -1,11 +1,34 @@
 import requests
 import json
+import os
 
 from scraper import scrape_data
-from config import HEADERS, PROVIDER, TOOL_URL, SCRAPED_URL, payload
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
+# Chatbot configuration
+KEY = os.getenv("EDENAI_KEY")
+HEADERS = {"Authorization": f"Bearer {KEY}"}
 
+TOOL_URL = "https://api.edenai.run/v2/text/chat"
+PROVIDER = "openai/gpt-4o-mini"
+
+SCRAPED_URL = "http://frontend:8001/"
+
+payload = {
+    "providers": PROVIDER,
+    "text": "",
+    "chatbot_global_action": "",
+    "previous_history": [],
+    "temperature": 0.0,
+    "max_tokens": 150,
+    "fallback_providers": "",
+}
+
+
+# Chatbot function
 def get_answer_from_chatbot(prompt):
     try:
         data = scrape_data(SCRAPED_URL)

@@ -1,3 +1,5 @@
+/* Body styling */
+
 html {
     scroll-behavior: smooth;
 }
@@ -76,27 +78,6 @@ h1 {
     margin-bottom: 2rem;
     border: solid 20px rgb(31, 31, 31);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgb(75, 75, 75, 0.2);
-}
-
-@keyframes zoomAndRotate {
-    0% {
-        transform: scale(1) rotate(0deg);
-        filter: blur(0);
-    }
-    
-    50% {
-    transform: scale(3) rotate(180deg);
-    filter: blur(2px);
-    }
-
-    100% {
-    transform: scale(1) rotate(360deg);
-    filter: blur(0);
-    }
-}
-
-.profile-pic:hover {
-    animation: zoomAndRotate 1s;
 }
 
 .skills {
@@ -195,7 +176,7 @@ h1 {
     color: rgb(220, 5, 45);
 }
 
-#beatles_skill,
+#amazing_hair,
 #barb_skill {
     scroll-margin-top: 30px;
 }
@@ -266,6 +247,8 @@ h1 {
     display: block;
 }
 
+
+/* Chatbot styling */
 
 .chatbot-window {
     position: fixed;
