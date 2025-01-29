@@ -8,18 +8,18 @@ Dans le cadre de ma formation développeur IA chez Simplon, j'ai mis en place un
 project/
 │
 ├── src/
-│	├── backend/
-│	│   ├── chatbot.py			# Fonction et configuration du chatbot
-│	│   ├── main.py    			# Script de l'API du chatbot
-│	│   ├── mini_bot.py    		# Petit script de chat utilisable indépendamment (exercice)
-│	│   └── scraper.py    		# Fonction de scraping du frontend
-│	│
-│	└── frontend/
-│	    ├── assets/
-│	    │   └── images/    		# Images du site web
-│	    ├── index.html
-│	    ├── script.js
-│	    └── style.css
+│   ├── backend/
+│   │   ├── chatbot.py       # Fonction et configuration du chatbot
+│   │   ├── main.py          # Script de l'API du chatbot
+│   │   ├── mini_bot.py      # Petit script de chat utilisable indépendamment (exercice)
+│   │   └── scraper.py       # Fonction de scraping du frontend
+│   │
+│   └── frontend/
+│       ├── assets/
+│       │   └── images/      # Images du site web
+│       ├── index.html
+│       ├── script.js
+│       └── style.css
 │
 ├── .env
 ├── .gitignore
@@ -28,11 +28,11 @@ project/
 ├── Dockerfile.front
 ├── README.md
 ├── requirements.txt
-└── template.env				# Template pour le fichier .env contenant la clé API
+└── template.env             # Template pour le fichier .env contenant la clé API
 ```
 
 ## Prérequis avant le lancement via Docker
-- Installation de Docker
+- Installation de [Docker](https://www.docker.com/products/docker-desktop/)
 - Une clé API [Eden AI](https://app.edenai.run/)
 
 ## Procédure
